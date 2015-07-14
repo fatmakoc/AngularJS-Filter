@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+    <script src="angController.js"></script>
+    <script src="ang.js"></script>
+    <style type="text/css">
+        .tamamlananKitap {
+            text-decoration: line-through;
+        }
+    </style>
+    <meta charset="utf-8">
+</head>
+<body>
+<div ng-controller="kitapCtrl">
+ 
+ <h3>ARŞİVİNİZE KİTAP EKLEYİN</h3>
+
+
+    <table>
+        <tr>
+            <td colspan="2">Ara:<input type="text" ng-model="ara" /></td>
+        </tr>
+        <tr>
+            <td><input type="text" ng-model="KitapAdi"> </input></td>
+            <td><button ng-click="Ekle(KitapAdi)">Ekle</button></td>
+        </tr>
+    </table>
+    <ul>
+    <li ng-repeat="kitaplar in liste | filter:ara">
+        <span ng-class="{tamamlananKitap:kitaplar.Okey}">{{kitaplar.Adi}}</span>
+       
+    </li>
+</ul>
+</div>
+</body>
+</html>
